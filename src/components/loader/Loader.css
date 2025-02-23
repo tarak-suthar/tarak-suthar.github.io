@@ -1,0 +1,28 @@
+.loading-state {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loading {
+    width: 75px;
+    height: 75px;
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.05);
+    border-top-color: #fff;
+    animation: loading 1s infinite linear;
+    border-radius: 100%;
+    border-style: solid;
+  }
+  @keyframes loading {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

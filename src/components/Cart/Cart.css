@@ -1,0 +1,150 @@
+
+
+.cart-container .cart-title {
+    padding-left: 2px;
+    margin-left: 20px;
+    font-weight: 100;
+    border-left: 2px solid #9C83F9;
+}
+
+.shopping-cart .heading{
+    color:#aaa;
+}
+
+.shopping-cart {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+}
+
+
+
+
+
+.cart-item{
+    display: flex;
+    width: 100%;
+}
+
+.cart-container .row{
+    display: flex;
+    width: 100%;
+    /* justify-content: space-between; */
+    /* border-bottom: 1px solid #eee; */
+}
+
+/* .row .cell{
+    display: flex;
+    align-items: center;
+} */
+
+.row .cell,.heading{
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    /* min-width:150px; */
+    width: 17vw;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.row .cell .content{
+    width: 100px;
+    flex-shrink: 0;
+}
+.row .cell .content img{
+    max-width: 100%;
+    height: 100px;
+}
+
+
+.content .input-quantity{
+    width: 50px;
+}
+
+
+
+
+
+/* Totals section */
+.totals .totals-item {
+    float: right;
+    clear: both;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.totals .totals-item label {
+    float: left;
+    clear: both;
+    width: 79%;
+    text-align: right;
+}
+
+.totals .totals-item .totals-value {
+    float: right;
+    width: 21%;
+    text-align: right;
+}
+
+.totals .totals-item-total {
+    font-family: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
+}
+
+.checkout {
+    align-self: flex-end;
+    width: 150px;
+    border: 0;
+    margin-top: 20px;
+    padding: 6px 25px;
+    background-color: #6b6;
+    color: #fff;
+    font-size: 25px;
+    border-radius: 3px;
+}
+
+.checkout:hover {
+    background-color: #494;
+}
+
+.cart-item-remove-btn{
+    background-color: red;
+    color:white;
+    box-shadow: 0;
+    font-weight: bold;
+    border-radius: 0;
+    border-style: none;
+    font-size:small;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Tablet adjustments */
+@media screen and (max-width: 940px) {
+    .row .heading {
+        display: none;
+    }
+    .row{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+    }
+    .cell {
+        justify-content: center;
+        flex:30%;
+    }
+    .row .img,.row .discription,.row .price{
+        border:none;
+    }
+
+}
+
+/* Phone adjustments */
+@media screen and (max-width: 350px) {
+    .totals .totals-item label {
+        width: 60%;
+    }
+    .totals .totals-item .totals-value {
+        width: 40%;
+    }
+}

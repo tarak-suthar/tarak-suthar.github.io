@@ -1,0 +1,35 @@
+/* sidebar toggle button */
+.sidebar-checkbox {
+    display: none; /* Hidden checkbox for toggling */
+}
+  
+.sidebar-checkbox:checked ~ .sidebar-container .sidebar{
+    transform: translateX(0);
+}
+
+.sidebar-checkbox:checked ~ .sidebar-container{
+    /* opacity: 1; */
+    visibility: visible;
+}
+
+
+  
+  /* Sidebar toggle button */
+  .sidebar-toggle-button {
+    position: fixed;
+    top: 16px;
+    left: 10px;
+    /* background-color: #F8D045; */
+    background-color: #101357;
+    color: #9C83F9;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    z-index: 101;
+  }
+  
+  .sidebar-toggle-button:hover {
+    /* background-color: #F4BB44; */
+    background-color: #191970;
+  }

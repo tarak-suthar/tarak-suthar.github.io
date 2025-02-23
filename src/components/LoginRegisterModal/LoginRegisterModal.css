@@ -1,0 +1,41 @@
+.lr-modal-container{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    overflow-y:hidden;
+}
+
+.lr-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 150px;
+    width: 250px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-80%) translateX(-50%);
+}
+
+.lr-modal-cross{
+    background: none;
+    padding:0;
+    position: absolute;
+    left:90%;
+    top: 0%;
+    border-style: none;
+    border-radius: 0;
+    cursor: pointer;
+    color: gray;
+    transform: translateX(-10%);
+}
+
+.lr-modal-cross:hover{
+    filter: brightness(70%);
+}
+
