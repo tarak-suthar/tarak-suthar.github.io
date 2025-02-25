@@ -10,23 +10,26 @@ import { SidebarContextProvider } from "./context/SidebarContext"
 import WishlistPage from './pages/WishlistPage.jsx'
 import { LoginRegisterModalProvider } from './context/LoginRegisterToggleContext'
 import LoginRegisterModal from './components/LoginRegisterModal'
+import FireToastsByParams from './components/FireToastsByParams/FireToastsByParams.jsx'
 
 function App() {
 
   return (
     <LoginRegisterModalProvider>
       <SidebarContextProvider>
-        <Container>
-          <Routes>
-            <Route path="/" element={<ProductsPage/>} />
-            <Route path="/cart" element={<CartPage/>} />
-            <Route path="/login" element={<LoginPage/>} />
-            <Route path="/callback" element={<CallbackPage/>} />
-            <Route path="/register" element={<RegisterPage/>} />
-            <Route path="/wishlist" element={<WishlistPage/>} />
-            <Route path="*" element={<></>} />
-          </Routes>
-        </Container>
+        <FireToastsByParams>
+          <Container>
+            <Routes>
+              <Route path="/" element={<ProductsPage/>} />
+              <Route path="/cart" element={<CartPage/>} />
+              <Route path="/login" element={<LoginPage/>} />
+              <Route path="/callback" element={<CallbackPage/>} />
+              <Route path="/register" element={<RegisterPage/>} />
+              <Route path="/wishlist" element={<WishlistPage/>} />
+              <Route path="*" element={<></>} />
+            </Routes>
+          </Container>
+        </FireToastsByParams>
         <LoginRegisterModal/>
       </SidebarContextProvider>
     </LoginRegisterModalProvider>

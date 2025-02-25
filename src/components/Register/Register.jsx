@@ -17,14 +17,8 @@ export default function Register(){
             if(password.localeCompare(confirmPassword) != 0) throw new Error("Confirm password doesn't match the password");
             // dispatch register
             const data = await registerUser(formData);
-            console.log(data);
            return  data;
     }
-
-
-    useEffect(()=>{
-        console.log(state);
-    },[state])
 
     return(
         <div className="register-container">

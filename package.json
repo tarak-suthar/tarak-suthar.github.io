@@ -2,7 +2,7 @@
   "name": "shoppingclient",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://taraksuthar1999.github.io/shoppingClient",
+  "homepage": "https://taraksuthar1999.github.io",
   "type": "module",
   "scripts": {
     "predeploy":"npm run build",

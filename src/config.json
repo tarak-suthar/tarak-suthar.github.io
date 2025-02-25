@@ -1,12 +1,12 @@
 {
     "client_id":"public-client",
-    "redirect_uri":"https://modern-colts-run.loca.lt/callback",
+    "redirect_uri":"https://taraksuthar1999.github.io/callback",
     "response_type":"code",
     "scope":"openid profile",
-    "post_logout_redirect_uri": "http://localhost:5173/",
+    "post_logout_redirect_uri": "https://taraksuthar1999.github.io",
     "response_mode": "query",
     "auth_uri":"/oauth2/authorize",
     "token_uri":"/oauth2/token",
-    "base_uri":"http://shopping-backend-api.taraksuthar.me",
+    "base_uri":"https:shopping-backend-api.taraksuthar.me",
     "code_challenge_method": "S256"
 }

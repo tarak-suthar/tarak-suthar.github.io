@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useSearchParams } from "react-router";
 
 export default function useProductFilters() {
@@ -9,11 +9,10 @@ export default function useProductFilters() {
     const sortBy = queryParams.get("sortBy");
     const direction = queryParams.get("direction");
     const paramsPage = parseInt(queryParams.get("page"));
-    const validPage = paramsPage >= 0 ? paramsPage : 1;
+    const validPage = paramsPage > 0 ? paramsPage : 1;
     const page = validPage;
 
     const setFilters = useCallback((filters) => {
-        console.log("hello in my hook", filters);
         setQueryParams((params) => {
             if (filters.query != undefined) {
                 params.set("query", filters.query);
@@ -53,6 +52,6 @@ export default function useProductFilters() {
         page,
         setFilters,
         resetFilters
-    }
+    };
 
 }

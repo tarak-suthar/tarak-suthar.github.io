@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../slices/productsSlice";
-import { useEffect } from "react";
+import { fetchProducts, searchProdcuts } from "../slices/productsSlice";
+import { useEffect, useRef } from "react";
 import ProductCard from "../components/ProductCard";
 import Loader from "../components/loader";
 import "./ProductsPage.css";
@@ -15,11 +15,11 @@ export default function ProductsPage(){
     const products = useSelector((state)=>state.products.products);
     const pageObject = useSelector((state)=>state.products.page);
     const isLoading = useSelector((state)=>state.products.isLoading);
-    const dipatch = useDispatch();
-    
+    const dispatch = useDispatch();
 
     useEffect(()=>{
-        dipatch(fetchProducts({query,size,sortBy,direction, page:page-1}))
+        if(query) dispatch(searchProdcuts({query,size,sortBy,direction, page:page-1}))
+        else dispatch(fetchProducts({size,sortBy,direction, page:page-1}))
     },[query,size,sortBy,direction, page])
 
     return (

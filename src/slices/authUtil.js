@@ -41,6 +41,6 @@ export async function generateCodeChallengeAndVerifier() {
 
 export async function constructOAuth2LoginUri() {
     const { code_challenge } = await generateCodeChallengeAndVerifier();
-    return `${config.base_uri}:8080${config.auth_uri}?client_id=${config.client_id}&redirect_uri=${encodeURIComponent(config.redirect_uri)}&response_type=code&scope=${encodeURIComponent(config.scope)}&code_challenge=${code_challenge}&code_challenge_method=${config.code_challenge_method}&response_mode=query`;
+    return `${config.base_uri}${config.auth_uri}?client_id=${config.client_id}&redirect_uri=${encodeURIComponent(config.redirect_uri)}&response_type=code&scope=${encodeURIComponent(config.scope)}&code_challenge=${code_challenge}&code_challenge_method=${config.code_challenge_method}&response_mode=query`;
 }
 

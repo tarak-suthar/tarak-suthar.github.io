@@ -27,19 +27,9 @@ const authSlice = createSlice({
             }
             return state;
         },
-        populateAuth(state, action) {
-            const user = state.user ? state.user : JSON.parse(Cookies.get("user") ?? null);
-            const access_token = state.access_token ? state.access_token : Cookies.get("access_token") ?? null;
-            state = {
-                ...state,
-                user,
-                access_token
-            }
-            return state;
-        },
         logout(state, action) {
-            Cookies.remove("user");
-            Cookies.remove("access_token");
+            removeCookie("user");
+            removeCookie("access_token");
             state = {
                 ...state,
                 user: null,
@@ -76,7 +66,6 @@ const authSlice = createSlice({
                 return state;
             })
             .addCase(fetchAccessToken.rejected, (state, { payload }) => {
-                console.log("error", payload);
                 state.error = payload;
                 return state;
             })
@@ -94,7 +83,6 @@ export const fetchAccessToken = createAsyncThunk("auth/fetchAccessToken", async 
             client_id,
             grant_type: "authorization_code",
         }
-        console.log(body, "body");
         const uriEncodedBody = new URLSearchParams(body);
         const response = await fetch(`${base_uri}${token_uri}`, {
             method: "POST",
@@ -104,7 +92,6 @@ export const fetchAccessToken = createAsyncThunk("auth/fetchAccessToken", async 
             body: uriEncodedBody.toString()
         })
         const data = await response.json();
-        console.log(data, "data");
         if (!response.ok) {
             throw new Error(data?.message);
         }
@@ -150,10 +137,9 @@ export const registerUser = async (formData) => {
         toasts.successToast(data?.message);
         return data;
     } catch (error) {
-        console.log(error);
         toasts.errorToast(error?.message);
     }
 }
-export const { saveCodeChallengeAndVerifier, populateAuth, logout } = authSlice.actions;
+export const { saveCodeChallengeAndVerifier, logout } = authSlice.actions;
 
 export default authSlice.reducer;

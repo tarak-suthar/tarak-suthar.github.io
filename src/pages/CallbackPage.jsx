@@ -9,13 +9,10 @@ export default function CallbackPage(){
     const dispatch = useDispatch();
     const queryParams = new URLSearchParams(location.search);
     const user = useSelector((state)=>state.auth.user);
-    const error = useSelector((state)=>state.auth.error);
     
     useEffect(()=>{
         const code = queryParams.get('code');
-        console.log(code,"code",user);
         if(!user && code){
-            console.log("about to dispatch",user);
             dispatch(fetchAccessToken(code));
         } 
         else closeAndBackToHome();
@@ -24,11 +21,7 @@ export default function CallbackPage(){
 
     return(
         <div>
-            {
-                error?
-                <p>{error}</p>:
-                <Loader/>
-            }
+            <Loader/>
         </div>
     )
 
@@ -36,9 +29,8 @@ export default function CallbackPage(){
 
 
 function closeAndBackToHome(){
-    console.log("in else tab")
     window?.opener?.location?
-    window.opener.location.href = "/" 
-    : window.location.href="/"; // Redirect the previous tab to home or desired route
+    window.opener.location.href = "/?logged-in=true" 
+    : window.location.href="/logged-in=true"; // Redirect the previous tab to home or desired route
     window.close(); // Close the current tab
 }

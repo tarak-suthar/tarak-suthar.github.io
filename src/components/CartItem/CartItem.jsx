@@ -1,5 +1,14 @@
+import { useDispatch } from "react-redux"
+import { decreaseProductQty } from "../../slices/cartSlice";
+
 export default function CartItem({ cartItem }){
-    
+
+    const dispatch = useDispatch();
+
+    function decreaseProductQtyHandler(cartItem){
+        dispatch(decreaseProductQty(cartItem));
+    }
+
     return (
         <div key={cartItem.id} className="row">
                                 <div className="cell img">

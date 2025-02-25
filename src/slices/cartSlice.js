@@ -11,7 +11,6 @@ const cartSlice = createSlice({
             else {
                 state[product.id].quantity++;
             }
-            console.log("in side inc action");
         },
         decreaseProductQty(state, action) {
             const product = action.payload;
@@ -19,7 +18,6 @@ const cartSlice = createSlice({
             if (state[product.id].quantity <= 0) { // delete product
                 delete state[product.id];
             }
-            console.log("in side dec action");
         }
 
     }
