@@ -9,18 +9,19 @@ import LoginRegisterModal from "../LoginRegisterModal";
 import useLoginRegisterModal from "../../hooks/useLoginRegisterModal"
 
 
-export default function Container(props){
-    const {toggleModal} = useLoginRegisterModal();
+import ResponsiveSidebar from "../Sidebar/ResponsiveSidebar";
+
+export default function Container(props) {
+    const { toggleModal } = useLoginRegisterModal();
 
     return (
         <div className="body-container">
-            <Header/>
-            <SidebarCheckBox checkboxRef={props.checkboxRef}/>
-            <Sidebar/>
+            <Header />
+            <ResponsiveSidebar />
             <section className="main-content">
                 {props.children}
             </section>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     )
 }

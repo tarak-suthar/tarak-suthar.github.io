@@ -1,0 +1,134 @@
+.responsive-sidebar {
+    position: fixed;
+    left: 0;
+    top: var(--header-height);
+    /* Below header (97px exact) */
+    bottom: 0;
+    width: 80px;
+    /* Decreased width */
+    background-color: var(--color-bg-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    /* No padding around sections */
+    z-index: 999;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-y: auto;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    /* No space between sections */
+    width: 100%;
+    align-items: center;
+}
+
+.sidebar-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* Full width */
+    height: 90px;
+    /* Decreased height */
+    background-color: var(--color-primary);
+    /* Lime Green base */
+    border-radius: 0;
+    /* Square edges */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    position: relative;
+    color: var(--color-bg-dark);
+    /* Black text/icon */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* Separator border */
+}
+
+.sidebar-card:last-child {
+    border-bottom: none;
+}
+
+.sidebar-card:hover {
+    filter: brightness(0.95);
+    /* Subtle hover effect instead of transform */
+}
+
+.card-icon {
+    margin-bottom: 5px;
+    color: inherit;
+}
+
+.card-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    /* Smaller font */
+    font-weight: 600;
+    color: inherit;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.active-dot {
+    position: absolute;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    background-color: var(--color-bg-dark);
+    border-radius: 50%;
+}
+
+.sidebar-card.logout {
+    background-color: var(--color-error);
+    color: white;
+    height: 60px;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile: Overlay and Off-canvas */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+.sidebar-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive Logic */
+@media (max-width: 768px) {
+    .responsive-sidebar {
+        transform: translateX(-100%);
+        top: var(--header-height);
+        /* Start below header */
+        width: 80px;
+        /* Reduced width to match desktop */
+        /* Wider on mobile */
+        background-color: var(--color-bg-dark);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 0;
+    }
+
+    .responsive-sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-card {
+        height: 80px;
+    }
+}

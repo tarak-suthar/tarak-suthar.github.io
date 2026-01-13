@@ -1,22 +1,27 @@
-import { createContext, useRef } from "react";
+import { createContext, useState } from "react";
 
 const SidebarContext = createContext();
 
 export function SidebarContextProvider({ children }) {
-    const checkboxRef = useRef(null);
+    const [isOpen, setIsOpen] = useState(false);
+
     function check() {
-        checkboxRef.current.checked = true;
+        setIsOpen(true);
     }
     function unCheck() {
-        checkboxRef.current.checked = false;
+        setIsOpen(false);
     }
     function toggle() {
-        let state = checkboxRef.current;
-        state.checked = state.checked ? false : true;
+        setIsOpen(prev => !prev);
     }
 
+    // Alias for clearer API
+    const openSidebar = check;
+    const closeSidebar = unCheck;
+    const toggleSidebar = toggle;
+
     return (
-        <SidebarContext.Provider value={{ checkboxRef, check, unCheck, toggle }}>
+        <SidebarContext.Provider value={{ isOpen, check, unCheck, toggle, openSidebar, closeSidebar, toggleSidebar }}>
             {children}
         </SidebarContext.Provider>
     )
