@@ -4,7 +4,7 @@
     top: var(--header-height);
     /* Below header (97px exact) */
     bottom: 0;
-    width: 80px;
+    width: var(--sidebar-width);
     /* Decreased width */
     background-color: var(--color-bg-dark);
     display: flex;
@@ -80,6 +80,7 @@
     height: 5px;
     background-color: var(--color-bg-dark);
     border-radius: 50%;
+    box-shadow: 0 0 6px 1px var(--color-bg-dark);
 }
 
 .sidebar-card.logout {
@@ -116,7 +117,7 @@
         transform: translateX(-100%);
         top: var(--header-height);
         /* Start below header */
-        width: 80px;
+        width: var(--sidebar-width);
         /* Reduced width to match desktop */
         /* Wider on mobile */
         background-color: var(--color-bg-dark);

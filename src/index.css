@@ -1,4 +1,5 @@
 :root {
+  overscroll-behavior: none;
   --color-primary: #D7FC70;
   --color-bg-dark: #050505;
   --color-bg-card: #121212;
@@ -28,6 +29,7 @@
      Mobile: 40px (content) + 42px (padding 1.5rem*2 @14px) + 1px (border) = 83px
   */
   --header-height: 97px;
+  --sidebar-width: 80px;
 }
 
 @media screen and (max-width: 768px) {
