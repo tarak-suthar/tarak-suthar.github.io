@@ -1,10 +1,17 @@
 :root {
   overscroll-behavior: none;
+  /* Color Grades from design */
+  --color-gray-100: #050505;
+  --color-gray-200: #121212;
+  --color-gray-300: #1E1E1E;
+  --color-gray-400: #666666;
+  --color-gray-500: #E0E0E0;
+
   --color-primary: #D7FC70;
-  --color-bg-dark: #050505;
-  --color-bg-card: #121212;
-  --color-text-main: #FFFFFF;
-  --color-text-muted: #B0B0B0;
+  --color-bg-dark: var(--color-gray-100);
+  --color-bg-card: var(--color-gray-200);
+  --color-text-main: var(--color-gray-500);
+  --color-text-muted: var(--color-gray-400);
   --color-success: #29AE29;
   --color-warning: #FFC62A;
   --color-error: #EF4444;
@@ -32,8 +39,60 @@
   --sidebar-width: 80px;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page-container {
+  width: 100%;
+  margin: 0;
+  padding: 2.5rem 3rem;
+  box-sizing: border-box;
+  background-color: #080808;
+  background: radial-gradient(circle at top left, #121212 0%, #080808 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.8),
+    inset 0 1px 1px rgba(255, 255, 255, 0.02);
+  height: calc(100vh - var(--header-height));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Smooth scrolling and scrollbar styling */
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gray-300) transparent;
+}
+
+.page-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.page-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.page-container::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 768px) {
   :root {
     --header-height: 83px;
+  }
+
+  .page-container {
+    margin: 1rem auto;
+    padding: 1.5rem;
+    width: calc(100% - 2rem);
+    height: calc(100vh - var(--header-height) - 2rem);
+    box-sizing: border-box;
   }
 }

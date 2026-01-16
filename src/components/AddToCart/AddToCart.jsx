@@ -1,33 +1,41 @@
-import { useContext } from "react";
-// import CartContext from "../../context/cartContext";
 import { useDispatch, useSelector } from "react-redux";
-import { increaseProductQty,decreaseProductQty } from "../../slices/cartSlice";
-export default function AddToCart({product}){
+import { increaseProductQty, decreaseProductQty } from "../../slices/cartSlice";
+import Icon from "@mdi/react";
+import { mdiPlus, mdiMinus } from "@mdi/js";
+import "./AddToCart.css";
 
-    // const { cart, incrementQty, decrementQty } = useContext(CartContext);  // before used context
+export default function AddToCart({ product }) {
     const dispatch = useDispatch();
+    const quantity = useSelector((state) => state.cart[product.id] ? state.cart[product.id].quantity : 0);
 
-    let quantity = useSelector((state)=>state.cart[product.id]? state.cart[product.id].quantity : 0 );
-
-    function increase(){
-        // incrementQty(product); // context method
+    function increase() {
         dispatch(increaseProductQty(product));
     }
 
-    function decrease(){
-        // decrementQty(product); // context method
+    function decrease() {
         dispatch(decreaseProductQty(product));
     }
 
-    return(
-        <div>
-            { quantity==0?<button onClick={increase}>AddToCart</button>:
-                <div>
-                    <button onClick={decrease}>-</button>
-                    <span>{quantity}</span>
-                    <button onClick={increase}>+</button>
+    return (
+        <div className="add-to-cart-container">
+            {quantity === 0 ? (
+                <button className="add-to-cart-btn" onClick={increase}>
+                    <span className="plus-icon-wrapper">
+                        <Icon path={mdiPlus} size={0.8} />
+                    </span>
+                    Add to cart
+                </button>
+            ) : (
+                <div className="qty-control">
+                    <button className="qty-btn" onClick={decrease}>
+                        <Icon path={mdiMinus} size={0.8} />
+                    </button>
+                    <span className="qty-value">{quantity}</span>
+                    <button className="qty-btn" onClick={increase}>
+                        <Icon path={mdiPlus} size={0.8} />
+                    </button>
                 </div>
-            }
+            )}
         </div>
-    )
+    );
 }

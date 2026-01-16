@@ -1,0 +1,215 @@
+.product-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 0 2rem 0;
+}
+
+.product-details-image-container {
+    position: relative;
+    background: var(--color-gray-200);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-details-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-details-image:hover {
+    transform: scale(1.05);
+}
+
+.product-details-badge {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: #FF6B6B;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    z-index: 2;
+}
+
+.product-details-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.product-details-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: white;
+    line-height: 1.2;
+}
+
+.product-details-price-container {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.product-details-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.product-details-old-price {
+    font-size: 1.2rem;
+    text-decoration: line-through;
+    color: var(--color-text-muted);
+}
+
+.product-details-description-section,
+.product-details-specs-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.product-details-description {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+.specs-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.spec-item {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.spec-label {
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+.spec-value {
+    color: var(--color-gray-500);
+}
+
+.product-details-actions-group {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2.5rem;
+}
+
+.primary-action {
+    flex: 1;
+}
+
+/* AddToCart specific refinement within ProductDetails */
+.primary-action .add-to-cart-container {
+    margin-top: 0;
+}
+
+.primary-action .add-to-cart-btn {
+    width: 100% !important;
+    padding: 1rem 2rem !important;
+    font-size: 1.1rem !important;
+    justify-content: center !important;
+    border-radius: 100px !important;
+    height: 56px;
+    /* Explicit height for perfect synchronization */
+}
+
+.wishlist-btn-secondary {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    height: 56px;
+    /* Equal height */
+}
+
+.wishlist-btn-secondary:hover,
+.wishlist-btn-secondary.active {
+    background: rgba(215, 252, 112, 0.1);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.wishlist-btn-secondary svg,
+.wishlist-btn-secondary span {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.wishlist-btn-secondary:hover svg,
+.wishlist-btn-secondary.active svg {
+    transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+    .product-details {
+        gap: 2rem;
+    }
+
+    .product-details-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-details {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .specs-list {
+        grid-template-columns: 1fr;
+    }
+
+    .product-details-actions-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .wishlist-btn-secondary {
+        justify-content: center;
+        padding: 1rem;
+    }
+}

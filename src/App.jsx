@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage'
 import CallbackPage from './pages/CallbackPage'
 import Container from './components/Container'
 import RegisterPage from './pages/RegisterPage'
+import ProductDetailsPage from './pages/ProductDetailsPage'
 import { SidebarContextProvider } from "./context/SidebarContext"
 import WishlistPage from './pages/WishlistPage.jsx'
 import { LoginRegisterModalProvider } from './context/LoginRegisterToggleContext'
@@ -27,6 +28,7 @@ function App() {
               <Route path="/callback" element={<CallbackPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/wishlist" element={<WishlistPage />} />
+              <Route path="/product/:id" element={<ProductDetailsPage />} />
               <Route path="*" element={<></>} />
             </Routes>
           </Container>

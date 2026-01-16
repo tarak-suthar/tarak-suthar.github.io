@@ -7,7 +7,8 @@ import {
     mdiShape, mdiShapeOutline,
     mdiCart, mdiCartOutline,
     mdiReceipt, mdiReceiptOutline,
-    mdiAccount, mdiAccountOutline
+    mdiAccount, mdiAccountOutline,
+    mdiHeart, mdiHeartOutline
 } from '@mdi/js';
 import './ResponsiveSidebar.css';
 import SidebarContext from '../../context/SidebarContext';
@@ -27,7 +28,8 @@ export default function ResponsiveSidebar() {
         { path: '/categories', icon: mdiShape, inactiveIcon: mdiShapeOutline, label: 'Category' },
         { path: '/cart', icon: mdiCart, inactiveIcon: mdiCartOutline, label: 'Cart', action: 'auth' },
         { path: '/orders', icon: mdiReceipt, inactiveIcon: mdiReceiptOutline, label: 'Orders', action: 'auth' },
-        { path: '/wishlist', icon: mdiAccount, inactiveIcon: mdiAccountOutline, label: 'Profile' },
+        { path: '/wishlist', icon: mdiHeart, inactiveIcon: mdiHeartOutline, label: 'Wishlist' },
+        { path: '/profile', icon: mdiAccount, inactiveIcon: mdiAccountOutline, label: 'Profile' }
     ];
 
     const handleNavigation = (item) => {

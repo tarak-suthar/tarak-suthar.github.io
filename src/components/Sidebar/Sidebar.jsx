@@ -8,6 +8,14 @@ import { logout } from "../../slices/authSlice";
 import { useNavigate, useLocation } from "react-router";
 import { requireAuth } from "../../utils/authUtils";
 import useLoginRegisterModal from "../../hooks/useLoginRegisterModal";
+import Icon from "@mdi/react";
+import {
+    mdiHome, mdiHomeOutline,
+    mdiHeart, mdiHeartOutline,
+    mdiCart, mdiCartOutline,
+    mdiEmail, mdiEmailOutline,
+    mdiLogout
+} from "@mdi/js";
 
 export default function Sidebar() {
     const user = useSelector((state) => state.auth.user);
@@ -42,25 +50,42 @@ export default function Sidebar() {
                         <a
                             className={location.pathname === "/" ? "active" : ""}
                             onClick={() => navigate("")}
-                        >Home</a>
+                        >
+                            <Icon path={location.pathname === "/" ? mdiHome : mdiHomeOutline} size={0.9} />
+                            Home
+                        </a>
                     </li>
                     <li className="list-item">
                         <a
                             className={location.pathname === "/wishlist" ? "active" : ""}
                             onClick={() => navigate("/wishlist")}
-                        >Wishlist</a>
+                        >
+                            <Icon path={location.pathname === "/wishlist" ? mdiHeart : mdiHeartOutline} size={0.9} />
+                            Wishlist
+                        </a>
                     </li>
                     <li className="list-item">
                         <a
                             className={location.pathname === "/cart" ? "active" : ""}
                             onClick={handleOpenCart}
-                        >Cart</a>
+                        >
+                            <Icon path={location.pathname === "/cart" ? mdiCart : mdiCartOutline} size={0.9} />
+                            Cart
+                        </a>
                     </li>
                     <li className="list-item contact">
-                        <a href="mailto:suthartarak@gmail.com">Contact</a>
+                        <a href="mailto:suthartarak@gmail.com">
+                            <Icon path={mdiEmailOutline} size={0.9} />
+                            Contact
+                        </a>
                     </li>
                     {user && <li className="list-item">
-                        <div><button onClick={handleLogout} className="logout-button">Logout</button></div>
+                        <div>
+                            <button onClick={handleLogout} className="logout-button">
+                                <Icon path={mdiLogout} size={0.9} />
+                                Logout
+                            </button>
+                        </div>
                     </li>
                     }
                 </ul>

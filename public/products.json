@@ -1,0 +1,164 @@
+[
+    {
+        "id": 1,
+        "title": "Apple 2021 Apple 16-inch MacBook Pro",
+        "price": 2639.90,
+        "oldPrice": 2920.90,
+        "discount": 50,
+        "img": "https://images.unsplash.com/photo-1517336712461-701a3542b8a6?q=80&w=1000&auto=format&fit=crop",
+        "category": "Laptops",
+        "description": "Experience the ultimate pro laptop with the 16-inch MacBook Pro. Featuring the powerful M1 Max chip, a stunning Liquid Retina XDR display, and advanced thermal systems, it's built for developers, photographers, and video editors who need the best performance on the go.",
+        "specifications": [
+            {
+                "label": "Processor",
+                "value": "Apple M1 Max"
+            },
+            {
+                "label": "Memory",
+                "value": "32GB Unified Memory"
+            },
+            {
+                "label": "Storage",
+                "value": "1TB SSD"
+            },
+            {
+                "label": "Display",
+                "value": "16.2-inch Liquid Retina XDR"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "LG Smart LED TV 32 Inch 43LM6300PVB",
+        "price": 1500,
+        "img": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?q=80&w=1000&auto=format&fit=crop",
+        "category": "Electronics",
+        "description": "Enjoy crisp, clear visuals with the LG Smart LED TV. With Full HD resolution and Dynamic Color Enhancer, your favorite shows and movies come to life. The intuitive webOS platform gives you easy access to streaming services like Netflix, Disney+, and YouTube.",
+        "specifications": [
+            {
+                "label": "Screen Size",
+                "value": "32 Inches"
+            },
+            {
+                "label": "Resolution",
+                "value": "Full HD (1920 x 1080)"
+            },
+            {
+                "label": "Smart OS",
+                "value": "WebOS"
+            },
+            {
+                "label": "Connectivity",
+                "value": "Wi-Fi, HDMI, USB"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "iPhone 15 Pro Max - Natural Titanium",
+        "price": 1199.00,
+        "oldPrice": 1299.00,
+        "discount": 10,
+        "img": "https://images.unsplash.com/photo-1696446701796-da61225697cc?q=80&w=1000&auto=format&fit=crop",
+        "category": "Phones",
+        "description": "The iPhone 15 Pro Max represents a leap forward with its aerospace-grade titanium design. Powered by the A17 Pro chip, it offers unparalleled gaming performance and a professional-grade camera system with the longest optical zoom ever on an iPhone.",
+        "specifications": [
+            {
+                "label": "Chip",
+                "value": "A17 Pro"
+            },
+            {
+                "label": "Camera",
+                "value": "48MP Main, 5x Telephoto"
+            },
+            {
+                "label": "Material",
+                "value": "Titanium"
+            },
+            {
+                "label": "Display",
+                "value": "6.7-inch Super Retina XDR"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Sony WH-1000XM5 Wireless Headphones",
+        "price": 399.00,
+        "img": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop",
+        "category": "Audio",
+        "description": "The Sony WH-1000XM5 headphones redefine industry-leading noise cancellation and audio quality. With two processors controlling eight microphones, you'll experience clear calls and immersive sound, all while enjoying up to 30 hours of battery life with quick charging support.",
+        "specifications": [
+            {
+                "label": "Battery Life",
+                "value": "Up to 30 Hours"
+            },
+            {
+                "label": "Noise Cancelling",
+                "value": "Industry Leading"
+            },
+            {
+                "label": "Driver Unit",
+                "value": "30mm"
+            },
+            {
+                "label": "Bluetooth",
+                "value": "v5.2"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "ASUS ROG Zephyrus G14 Gaming Laptop",
+        "price": 1499.00,
+        "oldPrice": 1799.00,
+        "discount": 15,
+        "img": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=1000&auto=format&fit=crop",
+        "category": "Laptops",
+        "description": "Compact and powerful, the ASUS ROG Zephyrus G14 is the ultimate gaming machine for creators and gamers. Featuring the latest AMD Ryzen 9 processor and NVIDIA GeForce RTX 40-series graphics, it packs incredible power into a portable 14-inch chassis with a high-refresh Nebula display.",
+        "specifications": [
+            {
+                "label": "Processor",
+                "value": "AMD Ryzen 9"
+            },
+            {
+                "label": "Graphics",
+                "value": "NVIDIA RTX 4070"
+            },
+            {
+                "label": "RAM",
+                "value": "16GB DDR5"
+            },
+            {
+                "label": "Screen",
+                "value": "14-inch 165Hz QHD+"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Samsung Galaxy Watch 6 Classic",
+        "price": 349.00,
+        "img": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000&auto=format&fit=crop",
+        "category": "Wearables",
+        "description": "The Galaxy Watch 6 Classic combines a timeless aesthetic with advanced health tracking. With its rotating bezel, larger display, and comprehensive sleep monitoring, it's designed to help you live your healthiest life while looking your best.",
+        "specifications": [
+            {
+                "label": "Display",
+                "value": "Super AMOLED"
+            },
+            {
+                "label": "Battery",
+                "value": "Up to 40 Hours"
+            },
+            {
+                "label": "Features",
+                "value": "ECG, Blood Pressure, Sleep Coaching"
+            },
+            {
+                "label": "Durability",
+                "value": "5ATM + IP68 + MIL-STD-810H"
+            }
+        ]
+    }
+]
