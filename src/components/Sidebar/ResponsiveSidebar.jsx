@@ -2,7 +2,13 @@ import React, { useContext } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Icon from '@mdi/react';
-import { mdiHome, mdiShape, mdiCart, mdiPackageVariant, mdiAccount } from '@mdi/js';
+import {
+    mdiHome, mdiHomeOutline,
+    mdiShape, mdiShapeOutline,
+    mdiCart, mdiCartOutline,
+    mdiReceipt, mdiReceiptOutline,
+    mdiAccount, mdiAccountOutline
+} from '@mdi/js';
 import './ResponsiveSidebar.css';
 import SidebarContext from '../../context/SidebarContext';
 import { logout } from '../../slices/authSlice';
@@ -17,11 +23,11 @@ export default function ResponsiveSidebar() {
     const { toggleModal } = useLoginRegisterModal();
 
     const navItems = [
-        { path: '/', icon: mdiHome, label: 'Home' },
-        { path: '/categories', icon: mdiShape, label: 'Category' }, // Assuming route exists or placeholder
-        { path: '/cart', icon: mdiCart, label: 'Cart', action: 'auth' },
-        { path: '/orders', icon: mdiPackageVariant, label: 'Orders', action: 'auth' },
-        { path: '/wishlist', icon: mdiAccount, label: 'Profile' }, // Wishlist/Profile
+        { path: '/', icon: mdiHome, inactiveIcon: mdiHomeOutline, label: 'Home' },
+        { path: '/categories', icon: mdiShape, inactiveIcon: mdiShapeOutline, label: 'Category' },
+        { path: '/cart', icon: mdiCart, inactiveIcon: mdiCartOutline, label: 'Cart', action: 'auth' },
+        { path: '/orders', icon: mdiReceipt, inactiveIcon: mdiReceiptOutline, label: 'Orders', action: 'auth' },
+        { path: '/wishlist', icon: mdiAccount, inactiveIcon: mdiAccountOutline, label: 'Profile' },
     ];
 
     const handleNavigation = (item) => {
@@ -59,7 +65,11 @@ export default function ResponsiveSidebar() {
                                 onClick={() => handleNavigation(item)}
                             >
                                 {isActive && <div className="active-dot"></div>}
-                                <Icon path={item.icon} size={1.2} className="card-icon" />
+                                <Icon
+                                    path={isActive ? item.icon : item.inactiveIcon}
+                                    size={1.2}
+                                    className="card-icon"
+                                />
                                 <span className="card-label">{item.label}</span>
                             </div>
                         );

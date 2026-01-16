@@ -1,41 +1,149 @@
-.lr-modal-container{
+.lr-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 1000;
-    overflow-y:hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.lr-modal{
+.lr-modal-content {
+    background-color: var(--color-bg-card);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    padding: 3rem 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    animation: modalAppear 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.lr-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    transition: color 0.2s;
+}
+
+.lr-modal-close:hover {
+    color: var(--color-text-main);
+}
+
+.lr-modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.lr-btn {
+    width: 100%;
+    height: 52px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    height: 150px;
-    width: 250px;
-    background-color: white;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-80%) translateX(-50%);
+    transition: all 0.2s ease;
+    font-family: var(--font-body);
 }
 
-.lr-modal-cross{
-    background: none;
-    padding:0;
-    position: absolute;
-    left:90%;
-    top: 0%;
-    border-style: none;
-    border-radius: 0;
+.lr-btn-primary {
+    background-color: var(--color-primary);
+    color: #050505;
+    border: none;
+}
+
+.lr-btn-primary:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+.lr-btn-secondary {
+    background: transparent;
+    color: var(--color-text-main);
+    border: 1px solid #333333;
+}
+
+.lr-btn-secondary:hover {
+    border-color: #555555;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.lr-social-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.lr-social-btn {
+    width: 48%;
+    /* Adjusting for single icon, but styled like the original row */
+    height: 52px;
+    background-color: #000000;
+    border: 1px solid #333333;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    color: gray;
-    transform: translateX(-10%);
+    transition: all 0.2s ease;
+    width: 100%;
 }
 
-.lr-modal-cross:hover{
-    filter: brightness(70%);
+.lr-social-btn:hover {
+    border-color: #555555;
+    background-color: #0a0a0a;
 }
 
+.lr-google-icon {
+    /* Google colors are usually handled by brand assets, but mdiGoogle is monochromatic */
+    color: var(--color-text-main);
+}
+
+@media screen and (max-width: 480px) {
+    .lr-modal-content {
+        padding: 2.25rem 1.5rem;
+        gap: 1.5rem;
+        max-width: 320px;
+    }
+
+    .lr-btn {
+        height: 48px;
+        font-size: 0.9rem;
+    }
+
+    .lr-social-btn {
+        height: 48px;
+    }
+}
